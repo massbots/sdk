@@ -6,7 +6,8 @@ gen:
 		-i https://api.massbots.xyz/docs/openapi.yml \
 		-g python -o gen \
 		--api-name-suffix=Group \
-		--package-name openapi
+		--package-name openapi \
+		--http-user-agent=massbots/sdk/python
 
 OPENAPI_TARGET:=massbots/openapi
 
