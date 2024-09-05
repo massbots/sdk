@@ -3,31 +3,27 @@ package sdk
 import "time"
 
 func (a API) Balance() (int, error) {
-	balance, err := get[Balance](a, "balance")
+	balance, err := get[Balance](a, "me/balance")
 	if err != nil {
 		return 0, err
 	}
 	return balance.Balance, nil
 }
 
-func (a API) YoutubeVideo(id string) (YoutubeVideo, error) {
-	return get[YoutubeVideo](a, "yt/video/"+id)
-}
-
-func (a API) YoutubeChannel(id string) (YoutubeChannel, error) {
-	return get[YoutubeChannel](a, "yt/channel/"+id)
-}
-
 func (a API) Video(id string) (Video, error) {
-	return get[Video](a, "dl/video/"+id)
+	return get[Video](a, "video/"+id)
 }
 
-func (a API) VideoCached(id, format string) (DownloadFileID, error) {
-	return get[DownloadFileID](a, "dl/video/"+id+"/cached/"+format)
+func (a API) Channel(id string) (Channel, error) {
+	return get[Channel](a, "channel/"+id)
+}
+
+func (a API) VideoFormats(id string) (VideoFormats, error) {
+	return get[VideoFormats](a, "video/"+id+"/formats")
 }
 
 func (a API) VideoDownload(id, format string) (DownloadResult, error) {
-	return get[DownloadResult](a, "dl/video/"+id+"/download/"+format)
+	return get[DownloadResult](a, "video/"+id+"/download/"+format)
 }
 
 func (a API) PollDownload(id, format string, d time.Duration) (DownloadResult, error) {

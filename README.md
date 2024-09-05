@@ -36,12 +36,12 @@ import (
 )
 
 func main() {
-    mb := massbots.New(os.Getenv("TOKEN"))
+    mb := massbots.New(os.Getenv("BOT_ID"), os.Getenv("TOKEN"))
 
-    video, _ := mb.YT.Video("dQw4w9WgXcQ")
+    video, _ := mb.Video("dQw4w9WgXcQ")
     fmt.Println("Video:", video.Title)
 
-    channel, _ := mb.YT.Channel(video.ChannelID)
+    channel, _ := mb.Channel(video.ChannelID)
     fmt.Println("Channel:", channel.Title)
 }
 ```

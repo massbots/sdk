@@ -13,12 +13,14 @@ const (
 )
 
 type API struct {
+	botID  string
 	token  string
 	client *http.Client
 }
 
-func New(token string) API {
+func New(botID, token string) API {
 	return API{
+		botID:  botID,
 		token:  token,
 		client: &http.Client{},
 	}
@@ -43,6 +45,7 @@ func get[T any](a API, e string) (v T, _ error) {
 
 	req.Header.Set("User-Agent", "massbots/sdk/go")
 	req.Header.Set("X-Token", a.token)
+	req.Header.Set("X-Bot-Id", a.botID)
 
 	resp, err := a.client.Do(req)
 	if err != nil {

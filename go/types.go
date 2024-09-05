@@ -5,16 +5,15 @@ import (
 )
 
 type (
-	Balance        = openapi.ApiBalance
-	YoutubeVideo   = openapi.YtVideo
-	YoutubeChannel = openapi.YtChannel
-	Video          struct{ openapi.DlVideo }
-	VideoFormat    = openapi.DlVideoFormat
-	DownloadResult = openapi.DlResult
-	DownloadFileID = openapi.DlFileID
+	Balance        = openapi.Balance
+	Video          = openapi.Video
+	Channel        = openapi.Channel
+	VideoFormat    = openapi.VideoFormat
+	VideoFormats   struct{ openapi.VideoFormats }
+	DownloadResult = openapi.DownloadResult
 )
 
-func (v Video) Cached() []VideoFormat {
+func (v VideoFormats) Cached() []VideoFormat {
 	var cached []VideoFormat
 	for _, format := range v.Formats {
 		if format.Cached {
@@ -24,7 +23,7 @@ func (v Video) Cached() []VideoFormat {
 	return cached
 }
 
-func (v Video) NotCached() []VideoFormat {
+func (v VideoFormats) NotCached() []VideoFormat {
 	var cached []VideoFormat
 	for _, format := range v.Formats {
 		if !format.Cached {
