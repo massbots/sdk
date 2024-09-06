@@ -36,14 +36,7 @@ func TestExample(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	var cached []massbots.VideoFormat
-	for _, format := range formats.Formats {
-		if format.Cached {
-			cached = append(cached, format)
-			break
-		}
-	}
-
+	cached := formats.Cached()
 	t.Logf("Cached formats: %v", cached)
 
 	if len(cached) > 0 {
@@ -54,5 +47,4 @@ func TestExample(t *testing.T) {
 
 		t.Logf("Telegram file_id: %s", download.FileId)
 	}
-
 }

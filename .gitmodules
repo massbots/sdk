@@ -1,0 +1,3 @@
+[submodule "sdk-python"]
+	path = python
+	url = https://github.com/massbots/sdk-python.git
