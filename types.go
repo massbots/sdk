@@ -9,13 +9,13 @@ type (
 	Video          = openapi.Video
 	Channel        = openapi.Channel
 	VideoFormat    = openapi.VideoFormat
-	VideoFormats   struct{ openapi.VideoFormats }
+	VideoFormats   map[string]VideoFormat
 	DownloadResult = openapi.DownloadResult
 )
 
 func (v VideoFormats) Cached() []VideoFormat {
 	var cached []VideoFormat
-	for _, format := range v.Formats {
+	for _, format := range v {
 		if format.Cached {
 			cached = append(cached, format)
 		}
@@ -25,7 +25,7 @@ func (v VideoFormats) Cached() []VideoFormat {
 
 func (v VideoFormats) NotCached() []VideoFormat {
 	var cached []VideoFormat
-	for _, format := range v.Formats {
+	for _, format := range v {
 		if !format.Cached {
 			cached = append(cached, format)
 		}

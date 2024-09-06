@@ -76,14 +76,21 @@ type VideoFormat struct {
 	Format string `json:"format"`
 }
 
-// VideoFormats Video with available formats
-type VideoFormats struct {
-	// Formats Available formats
-	Formats map[string]VideoFormat `json:"formats"`
-}
+// BotId Your Telegram Bot ID
+type BotId = string
 
 // GetSearchParams defines parameters for GetSearch.
 type GetSearchParams struct {
 	// Q Query
 	Q string `form:"q" json:"q"`
+}
+
+// GetVideoIdDownloadFParams defines parameters for GetVideoIdDownloadF.
+type GetVideoIdDownloadFParams struct {
+	XBotId BotId `json:"X-Bot-Id"`
+}
+
+// GetVideoIdFormatsParams defines parameters for GetVideoIdFormats.
+type GetVideoIdFormatsParams struct {
+	XBotId BotId `json:"X-Bot-Id"`
 }
