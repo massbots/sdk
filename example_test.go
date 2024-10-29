@@ -17,6 +17,13 @@ func TestExample(t *testing.T) {
 
 	t.Logf("Balance: %d", balance)
 
+	stats, err := mb.Stats()
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	t.Logf("Stats: %v", stats)
+
 	video, err := mb.Video("R6rhxJjVNCU")
 	if err != nil {
 		t.Fatal(err)
