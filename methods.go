@@ -22,6 +22,11 @@ func (a API) Channel(id string) (Channel, error) {
 	return get[Channel](a, "channel/"+id)
 }
 
+func (a API) Search(q string, kind string) ([]Video, error) {
+	// TODO: implement channels search
+	return get[[]Video](a, "search?q="+q+"&kind="+kind)
+}
+
 func (a API) VideoFormats(id string) (VideoFormats, error) {
 	return get[VideoFormats](a, "video/"+id+"/formats")
 }
