@@ -10,6 +10,10 @@ func (a API) Balance() (int, error) {
 	return balance.Balance, nil
 }
 
+func (a API) Stats() ([]RequestStat, error) {
+	return get[[]RequestStat](a, "me/stats")
+}
+
 func (a API) Video(id string) (Video, error) {
 	return get[Video](a, "video/"+id)
 }

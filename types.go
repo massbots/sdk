@@ -6,6 +6,7 @@ import (
 
 type (
 	Balance        = openapi.Balance
+	RequestStat    = openapi.RequestStat
 	Video          = openapi.Video
 	Channel        = openapi.Channel
 	VideoFormat    = openapi.VideoFormat
