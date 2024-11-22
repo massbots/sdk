@@ -25,6 +25,9 @@ func (a API) Channel(id string) (Channel, error) {
 func (a API) Search(q string) ([]Video, error) {
 	return a.SearchVideos(q)
 }
+func (a API) ChannelFeed(id string) (ChannelFeed, error) {
+	return get[ChannelFeed](a, "channel/"+id+"/feed")
+}
 
 func (a API) SearchVideos(q string) ([]Video, error) {
 	return get[[]Video](a, "search?q="+q+"&kind=video")

@@ -30,6 +30,45 @@ type Channel struct {
 	ViewCount       int                  `json:"view_count"`
 }
 
+// ChannelFeed YouTube channel feed
+type ChannelFeed struct {
+	// Author Author of the channel feed.
+	Author string `json:"author"`
+
+	// ChannelId Unique identifier for the channel.
+	ChannelId string `json:"channel_id"`
+
+	// Entries List of feed entries associated with the channel.
+	Entries []ChannelFeedEntry `json:"entries"`
+
+	// Title Title of the channel feed.
+	Title string `json:"title"`
+}
+
+// ChannelFeedEntry YouTube channel feed entry
+type ChannelFeedEntry struct {
+	// Author Author of the video entry.
+	Author string `json:"author"`
+
+	// ChannelId Unique identifier for the channel.
+	ChannelId string `json:"channel_id"`
+
+	// Published Time when the video was published.
+	Published time.Time `json:"published"`
+
+	// ThumbnailUrl URL to the thumbnail of the video.
+	ThumbnailUrl string `json:"thumbnail_url"`
+
+	// Title Title of the video entry.
+	Title string `json:"title"`
+
+	// Updated Time when the video entry was last updated.
+	Updated time.Time `json:"updated"`
+
+	// VideoId Unique identifier for the video.
+	VideoId string `json:"video_id"`
+}
+
 // DownloadResult defines model for DownloadResult.
 type DownloadResult struct {
 	// FileId Telegram's `file_id` used for sending cached files

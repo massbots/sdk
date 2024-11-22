@@ -38,6 +38,13 @@ func TestExample(t *testing.T) {
 
 	t.Logf("Channel: %s", channel.Title)
 
+	feed, err := mb.ChannelFeed(channel.Id)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	t.Logf("Channel feed: %v", feed)
+
 	videos, err := mb.SearchVideos("Mellstroy")
 	if err != nil {
 		t.Fatal(err)

@@ -9,6 +9,7 @@ type (
 	RequestStat    = openapi.RequestStat
 	Video          = openapi.Video
 	Channel        = openapi.Channel
+	ChannelFeed    = openapi.ChannelFeed
 	VideoFormat    = openapi.VideoFormat
 	VideoFormats   map[string]VideoFormat
 	DownloadResult = openapi.DownloadResult
